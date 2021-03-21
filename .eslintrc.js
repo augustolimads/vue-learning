@@ -15,7 +15,7 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     "indent": ["error", 2],
-        "linebreak-style": ["error", "unix"],
+        "linebreak-style": ["warn", "windows"],
         "quotes": ["error", "double"],
         "semi": ["error", "always"],
 

@@ -16,6 +16,7 @@
       <p v-if="seen">Agora você me viu</p>
     </div>
     <hr />
+
     <div>
       <ol>
         <li v-for="todo in todos" v-bind:key="todo.text">
@@ -29,13 +30,25 @@
       <p>{{ reverse }}</p>
       <button v-on:click="reverseMsg">Inverter Mensagem</button>
     </div>
+    <hr />
+
+    <div>
+      <p v-if="inputMsg <= 0">Digite uma mensagem</p>
+      <p>{{ inputMsg }}</p>
+      <input v-model="inputMsg" />
+    </div>
+    <hr />
+
+    <ComponentChildren></ComponentChildren>
   </main>
 </template>
 
 <script lang="ts">
+import ComponentChildren from "@/components/ComponentChildren.vue";
 import Vue from "vue";
 
 export default Vue.extend({
+  components: { ComponentChildren },
   name: "render",
   data() {
     return {
@@ -48,6 +61,7 @@ export default Vue.extend({
         { text: "Criar algo incrível" },
       ],
       reverse: "Olá Vue!!!",
+      inputMsg: "Hello Vue!!!",
     };
   },
   methods: {
