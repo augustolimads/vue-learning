@@ -33,13 +33,17 @@
     <hr />
 
     <div>
-      <p v-if="inputMsg <= 0">Digite uma mensagem</p>
-      <p>{{ inputMsg }}</p>
+      <p v-if="inputMsg">{{inputMsg}}</p>
+      <p v-else>Digite algum texto</p>
       <input v-model="inputMsg" />
     </div>
     <hr />
 
-    <ComponentChildren></ComponentChildren>
+    <div>
+      <button v-bind:disabled="isDisabled">Clica aqui</button>
+    </div>
+
+    <ComponentChildren />
   </main>
 </template>
 
@@ -62,6 +66,7 @@ export default Vue.extend({
       ],
       reverse: "Olá Vue!!!",
       inputMsg: "Hello Vue!!!",
+      isDisabled: true,
     };
   },
   methods: {
